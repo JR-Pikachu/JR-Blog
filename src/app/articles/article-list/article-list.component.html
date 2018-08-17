@@ -1,0 +1,26 @@
+<button (click)="articleEdit()">Ajouter un article</button>
+
+<mat-grid-list cols="8" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+      <h2>{{tile.title}}</h2>
+
+      <!--BLOC LEFT CONNECTION-->
+      <div *ngIf="tile.text==='left'">
+        <div *ngFor="let article of tabArticles">
+          <div class="art-preview">
+            <h3 class="art-title">
+                <a routerLink="{{article.id}}">{{article.title}}</a>
+            </h3>
+            <p class="art-content">{{article.content}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!--BLOC RIGHT SUBSCRIBE-->
+  
+      </mat-grid-tile>
+  </mat-grid-list>

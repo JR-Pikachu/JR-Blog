@@ -1,0 +1,26 @@
+<div class="article-edit-body">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile colspan="4" rowspan="1" style="background: lightgrey">
+      <h2>{{ title }}</h2>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="6" style="background: white">
+      <!--BLOC MAIN ARTICLE-->
+      <div class="bloc">
+        <form #ArticleData="ngForm" (ngSubmit)="onSubmitArticleEdit(ArticleData)">
+          <div class="form-container">
+
+            <mat-form-field class="bloc-title">
+              <input matInput placeholder="Titre de l'article" name="art_title" ngModel required>
+            </mat-form-field>
+
+            <mat-form-field class="bloc-content">
+              <textarea matInput placeholder="Ecrivez votre article" name="art_content" ngModel required></textarea>
+            </mat-form-field>
+
+          </div>
+          <button mat-stroked-button color="primary" type="submit">Soumettre l'article</button>
+        </form>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>  
+</div>

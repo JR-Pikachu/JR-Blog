@@ -1,0 +1,40 @@
+<div class="header-image">
+</div>
+<nav>
+  <div class="header-content">
+    <a mat-button routerLink="">Accueil</a>
+
+    <a mat-button routerLink="article">Articles</a>
+    <a mat-button routerLink="user">Inscription/Connexion</a>
+
+    <button mat-button [matMenuTriggerFor]="menu">Menu 1</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+        
+    <button mat-button [matMenuTriggerFor]="menu">Menu 2</button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+</nav>
+
+<!--
+
+<nav>
+  <div class="nav-wrapper indigo darken-4">
+    <ul id="nav-mobile" class="righ">
+      <a routerLink="">Accueil</a>
+
+      <li><a routerLink="">Accueil</a></li>
+      <li><a routerLink="produits">Liste des pokémons</a></li>
+      <li><a routerLink="produits/1">Pokémon 1</a></li>
+      <li><a routerLink="produits/2">Pokémon 2</a></li>
+      <li><a routerLink="produits/new">Création</a></li>
+    </ul>
+  </div>
+</nav>
+
+-->

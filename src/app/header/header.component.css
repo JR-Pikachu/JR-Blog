@@ -1,0 +1,13 @@
+.header-image {
+    height: 150px;
+    background-image: url("/assets/header-bg-mod.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-content {
+    color: white;
+    background-color: #fd5700;
+    padding-right: 50px;
+    text-align: right;
+}

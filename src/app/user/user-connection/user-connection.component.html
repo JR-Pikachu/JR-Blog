@@ -1,0 +1,90 @@
+<mat-grid-list cols="8" rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    <h2>{{tile.title}}</h2>
+
+    <!--BLOC LEFT CONNECTION-->
+    <div *ngIf="tile.text==='left'" class="bloc">
+      <form #UserConnect="ngForm" (ngSubmit)="onSubmitLogin(UserConnect)">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Nom d'utilisateur" name="log_name" ngModel required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="E-mail" [formControl]="log_email" required>
+            <mat-error *ngIf="log_email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" name="log_password" ngModel required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        </div>
+        <button mat-stroked-button color="primary" type="submit">Se connecter</button>
+      </form>
+    </div>
+
+    <!--BLOC RIGHT SUBSCRIBE-->
+    <div *ngIf="tile.text==='right'" class="bloc">
+      <form #UserSubscribe="ngForm" (ngSubmit)="onSubmitSubscribe(UserSubscribe)">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Nom d'utilisateur" name="sub_name" ngModel required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="E-mail" [formControl]="sub_email" required>
+            <mat-error *ngIf="sub_email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" name="sub_password" ngModel required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Confirmer mot de passe" [type]="hide ? 'password' : 'text'" name="sub_password2" ngModel required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        
+        </div>
+        <button mat-stroked-button color="primary" type="submit">S'inscrire</button>
+      </form>
+    </div>
+
+    </mat-grid-tile>
+</mat-grid-list>
+  
+
+
+<!--
+<form #UserLogin="ngForm" (ngSubmit)="onSubmit(UserLogin)">
+  <md-input-container>
+      <input mdInput [(ngModel)]="data.email" name="email" placeholder="Benutzername" class="form-control"  type="text" required>
+  </md-input-container>
+
+  <md-input-container>
+      <input mdInput [(ngModel)]="data.password" name="password" class="form-control" placeholder="Passwort" type="password" required>
+  </md-input-container>
+
+  <button md-button class="submit-btn" type="button" [disabled]="!UserLogin.form.valid">Login!</button>
+</form>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Textarea" name="texte1" ngModel></textarea>
+          </mat-form-field>
+
+// PERSONNAL
+<form id="ngForm" #form="ngForm" (ngSubmit)="onSubmit(form.value)">        
+
+  <label for='modalBooking_for_date'>Date</label>
+  <input id='modalBooking_for_date' type='date' name="booking_for_date" class="form-control"
+  [ngModel]="booking.booking_for | date:'yyyy-MM-dd'">
+
+
+
+-->
