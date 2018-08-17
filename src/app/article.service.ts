@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface ArticleEditResponse {
-  result: boolean;
+  success: boolean;
 }
 
 @Injectable({
@@ -22,14 +22,11 @@ export class ArticleService {
   }
 
   // API call - For register - SAMPLE V2 avec User pour TOUT
-  articleAdd(articleDataSent) {
+  registerArticle(articleDataSent) {
     console.log('articleAdd from articleService');
     console.log(articleDataSent);
     console.log('cancel security kan ok');
-    return; // security
-    /*
-    return this.http.post<ArticleEditResponse>(this._api + 'api/article/add', articleDataSent,
+    return this.http.post<ArticleEditResponse>(this._api + 'api/articles/', articleDataSent,
     this.httpOptions);
-    */
   }
 }

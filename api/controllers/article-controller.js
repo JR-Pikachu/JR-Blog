@@ -23,16 +23,21 @@ module.exports.list = (req, res, next) => {
  * Ajout un produit en BDD
  */
 module.exports.add = (req, res, next) => {
+    console.log('création dans BDD debut');
 
     // Récupération du produit
     const articlesproductReceived = req.body;
+    console.log(articlesproductReceived);
     
     // Ajout d'un produit en BDD
     Article.create(
         articlesproductReceived,
         (err, articleBDD) => {
+            console.log('err');
+            console.log(err);
             if(err) { next(err); }
             else {
+                console.log('création de larticle ok');
                 res.json(articleBDD);
             }
         }

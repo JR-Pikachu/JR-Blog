@@ -4,27 +4,19 @@ let Schema = mongoose.Schema;
 
 // Création du schéma
 const articleSchema = new Schema({
-    name: {
+    title: {
         type: String,
-        required: 'Le nom du produit doit être renseigné',
+        required: 'Le titre de l\'article doit être renseigné',
         unique: true
     },
-    introduction: {
+    content: {
         type: String,
-        required: 'Introduction obligatoire'
+        required: 'Le contenu de l\'article doit être rempli'
     },
-    price: Number,
-    nbViews: Number,
-    isPublished: Boolean,
-    createdAt: {
-        type: Date,
-        required: 'Date de création obligatoire'
-    },
-    updatedAt: Date,
-    publisher: {
-        type: String,
-        required: 'Publicateur obligatoire'
-    }
+    createdAt: String,
+    updatedAt: String,
+    state: Number,
+    author: String
 });
 
 // Création du modèle
