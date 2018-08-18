@@ -1,0 +1,10 @@
+<h2 mat-dialog-title> Je suis un titre {{data.title}} </h2>
+
+<mat-dialog-content>
+<p> on save ?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button>Cancel</button>
+  <button mat-raised-button (click)="save()">Save</button>
+</mat-dialog-actions>

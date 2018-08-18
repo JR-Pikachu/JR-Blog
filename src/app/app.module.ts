@@ -29,10 +29,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // http
 import { HttpClientModule } from '@angular/common/http';
 import { BodyComponent } from './body/body.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 const appRoutes: Routes = [
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     UserProfilComponent,
     UserConnectionComponent,
     ArticleEditComponent,
-    BodyComponent
+    BodyComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,11 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [
     ArticleService,

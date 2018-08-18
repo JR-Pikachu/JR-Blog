@@ -1,16 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../model/user';
 import { Article } from '../../model/article';
 import { ArticleService } from '../../article.service';
 
 // TEST
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-// TEST
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../../modal/modal.component';
 
 @Component({
   selector: 'app-article-edit',
@@ -88,29 +84,17 @@ export class ArticleEditComponent implements OnInit {
 
   // MODAL TEMP
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: 'this.name', animal: 'this.animal'}
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: {
+        title: 'l\'article truc ...'
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-//      this.animal = result;
+      console.log(result);
     });
   }
 
-
-}
-
-// MODAL TEMP
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
 }
