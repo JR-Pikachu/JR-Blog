@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
+import { Article } from '../../model/article';
 
 export interface Tile {
   color?: string;
@@ -17,17 +18,15 @@ export interface Tile {
 })
 export class ArticleListComponent implements OnInit {
 
-  public tabArticles: Array<any>;
-  public article1;
-  public article2;
+  public articles;
 
   tiles: Tile[] = [
     {text: 'border-left', cols: 1, rows: 5},
     {text: 'top-left', cols: 4, rows: 1, color: 'lightgrey', title: 'Liste des articles'},
     {text: 'top-right', cols: 2, rows: 1, color: 'lightgrey', title: 'Les + populaires'},
     {text: 'border-right', cols: 1, rows: 5},
-    {text: 'left', cols: 4, rows: 4, color: 'lightblue'},
-    {text: 'right', cols: 2, rows: 4, color: 'lightblue'},
+    {text: 'left', cols: 4, rows: 6, color: 'lightblue'},
+    {text: 'right', cols: 2, rows: 6, color: 'lightblue'},
   ];
 
   articleEdit() {
@@ -38,25 +37,20 @@ export class ArticleListComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private router: Router) {
     articleService.init();
-    this.initMyArticles();
-    this.tabArticles = [this.article1, this.article2];
    }
 
   ngOnInit() {
+    console.log(this.articles);
+    this.getArticlesList();
   }
 
-
-  // fake data
-  public initMyArticles() {
-    this.article1 = {
-      'id' : 1,
-      'title' : 'Pikachu',
-      'content' : 'Rongeur Jaune'
-    };
-    this.article2 = {
-      'id' : 2,
-      'title' : 'Ectoplasma',
-      'content' : 'Fantome'
-    };
+  // get all articles in api
+  getArticlesList() {
+    this.articleService.getArticles().subscribe(data => {
+      console.log('récupération des articles');
+      console.log(data);
+      this.articles = data;
+      console.log(this.articles);
+    });
   }
 }

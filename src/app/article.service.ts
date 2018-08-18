@@ -25,8 +25,19 @@ export class ArticleService {
   registerArticle(articleDataSent) {
     console.log('articleAdd from articleService');
     console.log(articleDataSent);
-    console.log('cancel security kan ok');
     return this.http.post<ArticleEditResponse>(this._api + 'api/articles/', articleDataSent,
     this.httpOptions);
   }
+
+  // API call - For Getting - SAMPLE V2 avec User pour TOUT
+  getArticles() {
+    console.log('getArticles from articleService');
+    return this.http.get<ArticleEditResponse>(this._api + 'api/articles/');
+  }
+
+  getArticle(id: string) {
+    console.log('getArticles from articleService');
+    return this.http.get<ArticleEditResponse>(this._api + 'api/articles/' + id);
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ArticleService } from '../../article.service';
+import { Article } from '../../model/article';
 
 @Component({
   selector: 'app-article-detail',
@@ -8,18 +10,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleDetailComponent implements OnInit {
 
-  sub;
-  route;
-  productID;
+  articleID;
+  articleData;
 
-  constructor(route: ActivatedRoute) {
-    this.productID = route.snapshot.params['id'];
-    console.log(this.productID);
+  constructor(route: ActivatedRoute, private articleService: ArticleService) {
+    this.articleID = route.snapshot.params['id'];
+    console.log(this.articleID);
     console.log(route.snapshot.params);
-   }
+    this.getArticlesList(this.articleID);
+  }
 
   ngOnInit() {
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
+  getArticlesList(id) {
+    this.articleService.getArticle(id).subscribe(data => {
+      console.log('récupération de 1 article');
+      console.log(data);
+      this.articleData = data;
+    });
+  }
+
+  updateArticle(data) {
+    console.log('update call');
+    console.log(data);
+  }
 }

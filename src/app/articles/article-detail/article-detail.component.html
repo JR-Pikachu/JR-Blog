@@ -1,3 +1,13 @@
-<p>
-  article-detail works!
-</p>
+{{ articleData | json}}
+<a routerLink="..">retour</a>
+<div *ngIf="articleData">
+
+  <button (click)="updateArticle(articleData)">modifier rapidement</button>
+
+  <h3> {{ articleData.title }} </h3>
+  <p> {{ articleData.content }} </p>
+  <p> écrit le : {{ articleData.createdAt }} </p>
+  <p> modifié le : {{ articleData.updatedAt }} </p>
+  <p> par : {{ articleData.author }} </p>
+</div>
+

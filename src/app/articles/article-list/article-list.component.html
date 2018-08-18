@@ -10,12 +10,11 @@
 
       <!--BLOC LEFT CONNECTION-->
       <div *ngIf="tile.text==='left'">
-        <div *ngFor="let article of tabArticles">
+        <div *ngFor="let article of articles" class="art-wrapper">
           <div class="art-preview">
-            <h3 class="art-title">
-                <a routerLink="{{article.id}}">{{article.title}}</a>
-            </h3>
+            <h3 class="art-title">{{article.title}}</h3>
             <p class="art-content">{{article.content}}</p>
+            <a routerLink="{{article._id}}" class="art-next">Lire la suite...</a>
           </div>
         </div>
       </div>

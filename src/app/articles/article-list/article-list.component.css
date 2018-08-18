@@ -1,24 +1,29 @@
-.form-container {
-    display: flex;
-    flex-direction: column;
+.art-wrapper {
+    width: 500px;
+    padding: 10px 0;
 }
-
-.form-container > * {
-    width: 100%;
-}
-
-.bloc {
-    width: 350px;
-}
-
 .art-preview {
     border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px 10px;
 }
 
 .art-title {
+    margin: 0;
     font-weight: bold;
+    cursor: pointer;
 }
-
 .art-content {
     font-style: italic;
+}
+
+.art-next {
+    font-style: italic;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 150px;
+    border: 1px dashed black;
+    margin: auto;
+    color: blue;
 }

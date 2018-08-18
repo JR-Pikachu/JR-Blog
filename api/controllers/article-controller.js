@@ -50,15 +50,16 @@ module.exports.add = (req, res, next) => {
  */
 module.exports.show = (req, res, next) => {
     // Récupération de l'id
+    console.log('recup un item en cours');
     const id = req.params.id;
     if(ObjectId.isValid(id)) {
         // Récupération du produit
-        Product.findOne(
+        Article.findOne(
             { '_id' : id },
-            (err, product) => {
+            (err, article) => {
                 if(err) { next(err); }
                 else {
-                    res.json(product);
+                    res.json(article);
                 }
             }
         );
